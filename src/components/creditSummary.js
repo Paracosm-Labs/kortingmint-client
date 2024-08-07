@@ -1,44 +1,54 @@
 // components/CreditSummary.js
 import React from 'react';
+import { Card, ProgressBar, Row, Col } from 'react-bootstrap';
 
 function CreditSummary() {
   // Sample data - replace with actual data fetching logic
   const creditInfo = {
-    limit: 50000,
-    available: 35000,
+    limit: 10000,
+    used: 7500,
+    available: 2500,
+    currencySymbol: '$',
     interestRate: 5.25
   };
 
+  const usedPercentage = (creditInfo.used / creditInfo.limit) * 100;
+
   return (
-    <div className="row mb-4">
-      <div className="col-md-4">
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">Credit Limit</h5>
-            <p className="card-text display-6">${creditInfo.limit.toLocaleString()}</p>
-            <p className="card-text text-muted">Total credit available for your business</p>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">Available Credit</h5>
-            <p className="card-text display-6">${creditInfo.available.toLocaleString()}</p>
-            <p className="card-text text-muted">Remaining credit available for use</p>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-4">
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">Current Interest Rate</h5>
-            <p className="card-text display-6">{creditInfo.interestRate}%</p>
-            <p className="card-text text-muted">Annual percentage rate for borrowing</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Row className="mb-4">
+      <Col md={8}>
+        <Card>
+          <Card.Body>
+            <Card.Title>Current Credit Balance</Card.Title>
+            <ProgressBar 
+              now={usedPercentage} 
+              animated
+              variant="success" 
+              className="mb-2"
+              style={{ height: '25px' }}
+            />
+            <p className="mb-1">
+              Your current credit balance: 
+              <strong className="text-warning"> {creditInfo.currencySymbol}{creditInfo.used.toLocaleString()}</strong> / 
+              {creditInfo.currencySymbol}{creditInfo.limit.toLocaleString()}
+            </p>
+            <p className="mb-0">
+              Available credit: 
+              <strong className="text-success"> {creditInfo.currencySymbol}{creditInfo.available.toLocaleString()}</strong>
+            </p>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col md={4}>
+        <Card>
+          <Card.Body>
+            <Card.Title>Current Interest Rate</Card.Title>
+            <p className="display-4 mb-0">{creditInfo.interestRate}%</p>
+            <p className="text-muted">Annual percentage rate for borrowing</p>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
   );
 }
 

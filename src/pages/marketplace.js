@@ -81,14 +81,16 @@ function Marketplace() {
   };
 
 
-  return (
-    <div className="container mt-4">
+  return (<>
+
+    <div className="kmint container mt-2">
       <div className="row mb-4">
-        <div className="col-md-6">
+        <div className="col-md-12 text-center">
           <h1>Discover Amazing Deals</h1>
         </div>
+        <div className="col-md-3"></div>
         <div className="col-md-6">
-          <div className="d-flex justify-content-end">
+          <div className="d-flex justify-content-middle mt-3">
             <div className="input-group" id="search-bar">
               <input type="text" className="form-control" placeholder="Search coupons" aria-label="Search coupons"
                 value={searchQuery}
@@ -216,6 +218,7 @@ function Marketplace() {
         </Modal.Footer>
       </Modal>
     </div>
+    </>
   );
 }
 

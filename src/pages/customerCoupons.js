@@ -19,9 +19,11 @@ function CustomerCoupons() {
   );
 
   return (
-    <div className="container mt-4">
+    <div className="kmint container mt-2 text-center">
       <h2>My Coupons</h2>
       <div className="d-flex justify-content-end mb-4">
+      <div className="col-md-3"></div>
+      <div className="col-md-6">
         <div className="input-group" id="search-bar">
           <input
             type="text"
@@ -33,6 +35,8 @@ function CustomerCoupons() {
           />
           <button className="btn btn-outline-secondary" type="button"><i className="fas fa-search"></i></button>
         </div>
+        </div>
+        <div className="col-md-3"></div>
       </div>
 
       <div className="row">

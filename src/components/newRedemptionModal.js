@@ -15,7 +15,7 @@ function NewRedemptionModal({ show, onHide }) {
   };
 
   return (
-    <Modal show={show} onHide={onHide} size="lg" centered>
+    <Modal show={show} onHide={onHide} size="md" centered>
       <Modal.Header closeButton>
         <Modal.Title>New Redemption - Scan QR Code</Modal.Title>
       </Modal.Header>

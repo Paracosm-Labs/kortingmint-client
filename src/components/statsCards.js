@@ -4,8 +4,8 @@ import React from 'react';
 const statsData = [
   { title: "Total Redemptions", value: "1,234" },
   { title: "Revenue Generated", value: "$15,678" },
-  { title: "Credit Available", value: "$25,000" },
-  { title: "Interest Rate", value: "4.5%" }
+  { title: "Credit Available", value: "$2,500" },
+  { title: "Interest Rate", value: "5.25%" }
 ];
 
 function StatsCards() {
