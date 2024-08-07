@@ -19,9 +19,6 @@ function Sidebar() {
           <li className="nav-item">
             <Link to="/dashboard/business/credit" className="nav-link">Credit</Link>
           </li>
-          <li className="nav-item">
-            <Link to="/dashboard/business/repayments" className="nav-link">Repayments</Link>
-          </li>
         </ul>
       </div>
     </nav>

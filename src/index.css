@@ -19,8 +19,12 @@ code {
 
 .kortingmint .nav-item a{color: #fff;}
 
-.kmint.container{
-  min-height: 600px;
+.kmint.container-fluid{
+  /* min-height: 680px; */
+}
+
+main.kmint{background-color: #fff;
+  min-height: 680px;
 }
 
 .price-qty-container .text-success {
