@@ -1,0 +1,45 @@
+// components/redemptionsTable.js
+import React from 'react';
+
+function RedemptionsTable() {
+  // Sample data - replace with actual data fetching logic
+  const redemptions = [
+    { id: 1, date: '2023-05-20', coupon: 'SUMMER20', customer: 'John Doe', amount: '$50.00', status: 'Completed' },
+    { id: 2, date: '2023-05-19', coupon: 'SPRING15', customer: 'Jane Smith', amount: '$30.00', status: 'Pending' },
+  ];
+
+  return (
+    <div className="table-responsive">
+      <table className="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Coupon</th>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {redemptions.map((redemption) => (
+            <tr key={redemption.id}>
+              <td>{redemption.id}</td>
+              <td>{redemption.date}</td>
+              <td>{redemption.coupon}</td>
+              <td>{redemption.customer}</td>
+              <td>{redemption.amount}</td>
+              <td>{redemption.status}</td>
+              <td>
+                <button className="btn btn-sm btn-outline-secondary">View</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default RedemptionsTable;

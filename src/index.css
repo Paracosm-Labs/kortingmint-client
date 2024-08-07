@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.bg-kortingmint, .kortingmint.sidebar{
+  background: #4caf50 !important;
+}
+
+.kortingmint .nav-item a{color: #fff;}
+
+.kmint.container{
+  min-height: 600px;
+}
+
+.price-qty-container .text-success {
+  float: right;
+}
