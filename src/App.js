@@ -4,11 +4,11 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Home from './pages/home';
 import PartnerDashboard from './pages/partnerDashboard';
-import BusinessDashboard from './pages/businessDashboard';
-import ClubDashboard from './pages/clubDashboard';
+import BusinessDashboard from './pages/clubDashboard';
+import OfferManagement from './pages/offerManagement';
 import Redemptions from './pages/redemptions';
 import Credit from './pages/credit';
-import Marketplace from './pages/marketplace';
+import ExploreClubs from './pages/exploreClubs';
 import CustomerClubs from './pages/customerClubs';
 
 function App() {
@@ -19,12 +19,12 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/dashboard/partner" element={<PartnerDashboard/>} />
-          <Route path="/dashboard/business" element={<BusinessDashboard/>}/>
-          <Route path="/dashboard/club" element={<ClubDashboard/>}/>
+          <Route path="/dashboard/club" element={<BusinessDashboard/>}/>
+          <Route path="/dashboard/business/manage-offers" element={<OfferManagement/>}/>
           <Route path="dashboard/business/redemptions" element={<Redemptions/>}/>
           <Route path="dashboard/business/credit" element={<Credit/>}/>
-          <Route path="/marketplace" element={<Marketplace/>} />
-          <Route path="/marketplace/myclubs" element={<CustomerClubs/>} />
+          <Route path="/explore" element={<ExploreClubs/>} />
+          <Route path="/explore/myclubs" element={<CustomerClubs/>} />
         </Routes>
         <Footer />
       </div>

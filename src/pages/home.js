@@ -23,8 +23,9 @@ function Home() {
       }}>
         <div className="container">
           <h1 className="display-4 mb-4">Join KortingMint's Decentralized Partner Network</h1>
-          <p className="lead mb-5">Connect businesses with customers through our innovative blockchain-based discount platform. No application needed - start earning instantly!</p>
-          <button id="ctaLoginButton" className="btn btn-primary btn-lg" onClick={handleLogin}>Get Started</button>
+          <h4>Empowering Collective Savings</h4>
+          <p className="lead mb-5">Connect businesses with customers through our innovative blockchain-based collective savings platform. <br/>No application needed - start earning instantly by helping businesses and customers benefit from group purchasing power!</p>
+          <button id="ctaLoginButton" className="btn btn-kmint-orange btn-lg" onClick={handleLogin}>Get Started</button>
         </div>
       </section>
 
@@ -32,20 +33,25 @@ function Home() {
         <div className="container">
           <h2 className="text-center mb-5">Why Join Our Decentralized Network?</h2>
           <div className="row">
-            <div className="col-md-4 text-center mb-4">
+            <div className="col-md-6 text-center mb-4">
               <i className="fas fa-coins feature-icon" style={{ fontSize: '3rem', color: '#4CAF50' }}></i>
               <h3>Instant Earnings</h3>
-              <p>Start earning cryptocurrency rewards immediately for every business you bring to our platform and for every coupon sold through your referrals.</p>
+              <p>Start earning cryptocurrency rewards immediately for every business you bring to our platform and for every membership sold through your referrals.</p>
             </div>
-            <div className="col-md-4 text-center mb-4">
+            <div className="col-md-6 text-center mb-4">
+              <i className="fas fa-people-group feature-icon" style={{ fontSize: '3rem', color: '#4CAF50' }}></i>
+              <h3>Collective Power</h3>
+              <p>Enable businesses and customers to access exclusive deals and credit facilities through collective purchasing pools, maximizing value for everyone.</p>
+            </div>
+            <div className="col-md-6 text-center mb-4">
               <i className="fas fa-globe feature-icon" style={{ fontSize: '3rem', color: '#4CAF50' }}></i>
               <h3>Global Opportunities</h3>
               <p>Connect with businesses worldwide and expand your reach beyond geographical boundaries.</p>
             </div>
-            <div className="col-md-4 text-center mb-4">
+            <div className="col-md-6 text-center mb-4">
               <i className="fas fa-lock feature-icon" style={{ fontSize: '3rem', color: '#4CAF50' }}></i>
               <h3>Secure & Transparent</h3>
-              <p>Benefit from blockchain technology ensuring transparent, secure, and instant transactions.</p>
+              <p>Benefit from blockchain technology ensuring transparent, secure, and instant transactions, with clear tracking of every deal.</p>
             </div>
           </div>
         </div>
@@ -67,7 +73,7 @@ function Home() {
               <div className="card h-100">
                 <div className="card-body">
                   <h5 className="card-title">2. Start Partnering</h5>
-                  <p className="card-text">Immediately begin connecting businesses with KortingMint's platform.</p>
+                  <p className="card-text">Immediately begin connecting businesses with KortingMint's collective savings clubs.</p>
                 </div>
               </div>
             </div>
@@ -75,7 +81,7 @@ function Home() {
               <div className="card h-100">
                 <div className="card-body">
                   <h5 className="card-title">3. Earn Rewards</h5>
-                  <p className="card-text">Receive instant cryptocurrency rewards for successful partnerships and coupon sales.</p>
+                  <p className="card-text">Receive instant cryptocurrency rewards for successful partnerships and membership sales in the clubs you help establish.</p>
                 </div>
               </div>
             </div>

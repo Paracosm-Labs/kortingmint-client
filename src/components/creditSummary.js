@@ -25,14 +25,14 @@ function CreditSummary() {
               animated
               variant="success" 
               className="mb-2"
-              style={{ height: '25px' }}
+              style={{ height: '23px' }}
             />
             <p className="mb-1">
               Your current credit balance: 
               <strong className="text-warning"> {creditInfo.currencySymbol}{creditInfo.used.toLocaleString()}</strong> / 
               {creditInfo.currencySymbol}{creditInfo.limit.toLocaleString()}
             </p>
-            <p className="mb-0">
+            <p className="mb-4">
               Available credit: 
               <strong className="text-success"> {creditInfo.currencySymbol}{creditInfo.available.toLocaleString()}</strong>
             </p>
@@ -44,7 +44,7 @@ function CreditSummary() {
           <Card.Body>
             <Card.Title>Current Interest Rate</Card.Title>
             <p className="display-4 mb-0">{creditInfo.interestRate}%</p>
-            <p className="text-muted">Annual percentage rate for borrowing</p>
+            <p className="text-muted">Borrowing APY</p>
           </Card.Body>
         </Card>
       </Col>

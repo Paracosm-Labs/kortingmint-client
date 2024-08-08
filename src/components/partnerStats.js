@@ -1,18 +1,16 @@
-// components/statsCards.js
+// components/PartnerStats.js
 import React from 'react';
 
 const statsData = [
-  { title: "Total Redemptions", value: "1,234" },
-  { title: "Revenue Generated", value: "$15,678" },
-  { title: "Credit Available", value: "$2,500" },
-  { title: "Interest Rate", value: "5.25%" }
+  { title: "Total Referrals", value: "1,234" },
+  { title: "Commissions Generated", value: "$8,888" },
 ];
 
-function StatsCards() {
+function PartnerStats() {
   return (
     <div className="row">
       {statsData.map((stat, index) => (
-        <div key={index} className="col-md-3">
+        <div key={index} className="col-md-5">
           <div className="card mb-4 shadow-sm">
             <div className="card-body">
               <h5 className="card-title">{stat.title}</h5>
@@ -21,8 +19,11 @@ function StatsCards() {
           </div>
         </div>
       ))}
+      <div className='col-md-2'>
+      <button type="button" className="btn btn-success mt-4"><i className='fa fa-award'></i> Claim</button>
+      </div>
     </div>
   );
 }
 
-export default StatsCards;
+export default PartnerStats;

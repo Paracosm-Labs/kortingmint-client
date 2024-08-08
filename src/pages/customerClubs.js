@@ -1,14 +1,52 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import OffcanvasDeals from '../components/offcanvasDeals';
 
 const purchasedClubs = [
-  { "id": 1, "name": "TechStore Savings Club", "description": "Join the TechStore Savings Club for exclusive 50% off all electronics", "image": "https://picsum.photos/300/150?random=1", "members": 50 },
-  { "id": 2, "name": "CoffeeHouse Perks Pool", "description": "Become a member of the CoffeeHouse Perks Pool and enjoy a free coffee with any purchase", "image": "https://picsum.photos/300/150?random=2", "members": 100 },
-  { "id": 3, "name": "FitnessPro Club Discount", "description": "Join the FitnessPro Club for a 20% discount on your first month of membership", "image": "https://picsum.photos/300/150?random=3", "members": 75 },
-// Add more purchased Clubs as needed
+  {
+    "id": 1,
+    "name": "TechStore Savings Club",
+    "description": "Join the TechStore Savings Club to pool your resources with other tech enthusiasts for exclusive group discounts on electronics.",
+    "price": 10,
+    "category": "Shopping",
+    "country": "United States",
+    "image": "https://picsum.photos/300/150?random=1",
+    "members": 50
+},
+{
+    "id": 2,
+    "name": "CoffeeHouse Perks Pool",
+    "description": "Become part of the CoffeeHouse Perks Pool to enjoy collective perks like free coffee and group deals at participating coffee shops.",
+    "price": 5,
+    "category": "Food & Drink",
+    "country": "Trinidad and Tobago",
+    "image": "https://picsum.photos/300/150?random=2",
+    "members": 100
+},
+{
+    "id": 3,
+    "name": "FitnessPro Club Discount",
+    "description": "Join forces with other fitness enthusiasts in the FitnessPro Club to unlock group discounts on memberships and services.",
+    "price": 15,
+    "category": "Health",
+    "country": "Trinidad and Tobago",
+    "image": "https://picsum.photos/300/150?random=3",
+    "members": 75
+},// Add more purchased Clubs as needed
 ];
+
+
 
 function CustomerClubs() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [selectedClub, setSelectedClub] = useState(null);
+  
+  const handleViewDeals = (club) => {
+    setSelectedClub(club);
+    setShowOffcanvas(true);
+  };
+
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -55,15 +93,17 @@ function CustomerClubs() {
                     </div>
                     <div className="d-flex justify-content-between align-items-center mt-3">
                     <p className="text-muted">{club.members} Members</p>
-                      <button className="btn btn-success">View</button>
+                      <button className="btn btn-success" onClick={() => handleViewDeals(club)}>View Deals</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
           </div>
         ))}
       </div>
+      <OffcanvasDeals show={showOffcanvas} onHide={() => setShowOffcanvas(false)} club={selectedClub} />
     </div>
   );
 }

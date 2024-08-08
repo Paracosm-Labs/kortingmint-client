@@ -16,7 +16,7 @@ function MakePaymentModal({ show, onHide }) {
   return (
     <Modal show={show} onHide={onHide} size="md" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Make a Payment</Modal.Title>
+        <Modal.Title>Make a Repayment</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
@@ -45,8 +45,8 @@ function MakePaymentModal({ show, onHide }) {
             <Button variant="secondary" onClick={onHide} className="me-2">
               Cancel
             </Button>
-            <Button variant="primary" type="submit">
-              Make Payment
+            <Button variant="success" type="submit">
+              Make Repayment
             </Button>
           </div>
         </Form>

@@ -1,25 +1,105 @@
-// pages/Marketplace.js
+// pages/exploreClubs.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 
-// Simulated club data
 const clubs = [
-    { "id": 1, "name": "TechStore Savings Club", "description": "Join the TechStore Savings Club for exclusive 50% off all electronics", "price": 10, "category": "Shopping", "country": "United States", "image": "https://picsum.photos/300/150?random=1", "members": 50 },
-    { "id": 2, "name": "CoffeeHouse Perks Pool", "description": "Become a member of the CoffeeHouse Perks Pool and enjoy a free coffee with any purchase", "price": 5, "category": "Food & Drink", "country": "Trinidad and Tobago", "image": "https://picsum.photos/300/150?random=2", "members": 100 },
-    { "id": 3, "name": "FitnessPro Club Discount", "description": "Join the FitnessPro Club for a 20% discount on your first month of membership", "price": 15, "category": "Health", "country": "Trinidad and Tobago", "image": "https://picsum.photos/300/150?random=3", "members": 75 },
-    { "id": 4, "name": "CinemaX Movie Club", "description": "Access the CinemaX Movie Club to get one free movie ticket", "price": 7, "category": "Entertainment", "country": "India", "image": "https://picsum.photos/300/150?random=4", "members": 30 },
-    { "id": 5, "name": "TravelPackage Savings Pool", "description": "Join the TravelPackage Savings Pool to enjoy 30% off any travel package", "price": 25, "category": "Travel", "country": "Japan", "image": "https://picsum.photos/300/150?random=5", "members": 20 },
-    { "id": 6, "name": "BookStore Buy 1 Get 1 Pool", "description": "Become a member of the BookStore Buy 1 Get 1 Pool and get one book free with every purchase", "price": 12, "category": "Shopping", "country": "Germany", "image": "https://picsum.photos/300/150?random=6", "members": 60 },
-    { "id": 7, "name": "GourmetBites Discount Club", "description": "Join the GourmetBites Discount Club to receive 10% off on all orders", "price": 8, "category": "Food & Drink", "country": "France", "image": "https://picsum.photos/300/150?random=7", "members": 85 },
-    { "id": 8, "name": "ZenStudio Yoga Pool", "description": "Sign up for the ZenStudio Yoga Pool and enjoy 1 free yoga class", "price": 10, "category": "Health", "country": "India", "image": "https://picsum.photos/300/150?random=8", "members": 40 },
-    { "id": 9, "name": "TaxiPro Ride Discount Club", "description": "Join the TaxiPro Ride Discount Club for 50% off your first ride", "price": 6, "category": "Travel", "country": "Netherlands", "image": "https://picsum.photos/300/150?random=9", "members": 70 },
-  
+  {
+      "id": 1,
+      "name": "TechStore Savings Club",
+      "description": "Join the TechStore Savings Club to pool your resources with other tech enthusiasts for exclusive group discounts on electronics.",
+      "price": 10,
+      "category": "Shopping",
+      "country": "United States",
+      "image": "https://picsum.photos/300/150?random=1",
+      "members": 50
+  },
+  {
+      "id": 2,
+      "name": "CoffeeHouse Perks Pool",
+      "description": "Become part of the CoffeeHouse Perks Pool to enjoy collective perks like free coffee and group deals at participating coffee shops.",
+      "price": 5,
+      "category": "Food & Drink",
+      "country": "Trinidad and Tobago",
+      "image": "https://picsum.photos/300/150?random=2",
+      "members": 100
+  },
+  {
+      "id": 3,
+      "name": "FitnessPro Club Discount",
+      "description": "Join forces with other fitness enthusiasts in the FitnessPro Club to unlock group discounts on memberships and services.",
+      "price": 15,
+      "category": "Health",
+      "country": "Trinidad and Tobago",
+      "image": "https://picsum.photos/300/150?random=3",
+      "members": 75
+  },
+  {
+      "id": 4,
+      "name": "CinemaX Movie Club",
+      "description": "Become a member of the CinemaX Movie Club to access group discounts on movie tickets and exclusive screenings.",
+      "price": 7,
+      "category": "Entertainment",
+      "country": "India",
+      "image": "https://picsum.photos/300/150?random=4",
+      "members": 30
+  },
+  {
+      "id": 5,
+      "name": "TravelPackage Savings Pool",
+      "description": "Join the TravelPackage Savings Pool to team up with fellow travelers and secure group discounts on travel packages.",
+      "price": 25,
+      "category": "Travel",
+      "country": "Japan",
+      "image": "https://picsum.photos/300/150?random=5",
+      "members": 20
+  },
+  {
+      "id": 6,
+      "name": "BookStore Buy 1 Get 1 Pool",
+      "description": "Join the BookStore Buy 1 Get 1 Pool to collaborate with other readers for bulk-buy savings and special offers.",
+      "price": 12,
+      "category": "Shopping",
+      "country": "Germany",
+      "image": "https://picsum.photos/300/150?random=6",
+      "members": 60
+  },
+  {
+      "id": 7,
+      "name": "GourmetBites Discount Club",
+      "description": "Join the GourmetBites Discount Club to participate in collective savings on gourmet food orders and dining experiences.",
+      "price": 8,
+      "category": "Food & Drink",
+      "country": "France",
+      "image": "https://picsum.photos/300/150?random=7",
+      "members": 85
+  },
+  {
+      "id": 8,
+      "name": "ZenStudio Yoga Pool",
+      "description": "Join the ZenStudio Yoga Pool to connect with fellow yoga enthusiasts and benefit from group rates on classes.",
+      "price": 10,
+      "category": "Health",
+      "country": "India",
+      "image": "https://picsum.photos/300/150?random=8",
+      "members": 40
+  },
+  {
+      "id": 9,
+      "name": "TaxiPro Ride Discount Club",
+      "description": "Join the TaxiPro Ride Discount Club to enjoy group-negotiated discounts on rides and transport services.",
+      "price": 6,
+      "category": "Travel",
+      "country": "Netherlands",
+      "image": "https://picsum.photos/300/150?random=9",
+      "members": 70
+  }
   // Add more clubs as needed
 ];
 
-function Marketplace() {
+
+function ExploreClubs() {
   const [selectedCountry, setSelectedCountry] = useState("All Countries");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [selectedSort, setSelectedSort] = useState("Newest");
@@ -84,7 +164,7 @@ function Marketplace() {
 
   const handlePayJoin = () => {
     setShowModal(false);
-    navigate('/marketplace/myclubs');
+    navigate('/explore/myclubs');
   };
 
 
@@ -195,7 +275,7 @@ function Marketplace() {
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
                   <h4 className='text-success mt-2'>${club.price}</h4>
-                  <button className="btn btn-primary" onClick={() => handleShowModal(club)}>Join Now</button>
+                  <button className="btn btn-success" onClick={() => handleShowModal(club)}>Join Now</button>
                 </div>
               </div>
             </div>
@@ -216,10 +296,10 @@ function Marketplace() {
           <p><strong>Members:</strong> {selectedClub?.members}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
+          <Button variant="outline-secondary" onClick={handleCloseModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={handlePayJoin}>
+          <Button variant="success" onClick={handlePayJoin}>
             Pay & Join Now
           </Button>
         </Modal.Footer>
@@ -229,4 +309,4 @@ function Marketplace() {
   );
 }
 
-export default Marketplace;
+export default ExploreClubs;

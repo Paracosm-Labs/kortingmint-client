@@ -4,13 +4,13 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 function NewRedemptionModal({ show, onHide }) {
   const [couponCode, setCouponCode] = useState('');
-  const [customerName, setCustomerName] = useState('');
+  const [customerWallet, setCustomerWallet] = useState('');
   const [amount, setAmount] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Submitting redemption:', { couponCode, customerName, amount });
+    console.log('Submitting redemption:', { couponCode, customerWallet, amount });
     onHide();
   };
 
@@ -41,8 +41,8 @@ function NewRedemptionModal({ show, onHide }) {
             <Form.Label>Customer Name</Form.Label>
             <Form.Control
               type="text"
-              value={customerName}
-              onChange={(e) => setCustomerName(e.target.value)}
+              value={customerWallet}
+              onChange={(e) => setCustomerWallet(e.target.value)}
               required
             />
           </Form.Group>

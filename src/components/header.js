@@ -11,10 +11,9 @@ function Header() {
           </button>
         <nav>
           <ul className="navbar-nav">
-            <li className="nav-item"><Link className="nav-link" to="/marketplace">Explore Clubs</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/marketplace/myclubs">My Clubs</Link></li>
-            {/* <li className="nav-item"><Link className="nav-link" to="/dashboard/partner">Partner</Link></li> */}
-            <li className="nav-item"><Link className="nav-link" to="/dashboard/business">Dashboard</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/explore">Explore Clubs</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/explore/myclubs">My Clubs</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/dashboard/club">Dashboard</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/">Logout</Link></li>
           </ul>
         </nav>

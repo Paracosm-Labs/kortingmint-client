@@ -7,7 +7,6 @@ import MakePaymentModal from '../components/makePaymentModal';
 import BorrowModal from '../components/borrowModal';
 
 function Credit() {
-  const [showCreditIncreaseModal, setShowCreditIncreaseModal] = useState(false);
   const [showMakePaymentModal, setShowMakePaymentModal] = useState(false);
   const [showBorrowModal, setShowBorrowModal] = useState(false);
 
@@ -15,14 +14,14 @@ function Credit() {
     <div className="kmint container-fluid">
       <div className="row">
         <Sidebar />
-        <main className="kmint col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <main className="kmint col-md-6 ms-sm-auto col-lg-6 px-md-4">
           <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 className="h2">Credit Dashboard</h1>
+            <h1 className="h2">Manage Credit</h1>
             <div className="btn-toolbar mb-2 mb-md-0">
-              <button type="button" className="btn btn-sm btn-outline-secondary me-2" onClick={() => setShowMakePaymentModal(true)}>
-                Make Payment
+              <button type="button" className="btn btn-md btn-outline-secondary me-2" onClick={() => setShowMakePaymentModal(true)}>
+                Make Repayment
               </button>
-              <button type="button" className="btn btn-sm btn-primary" onClick={() => setShowBorrowModal(true)}>
+              <button type="button" className="btn btn-md btn-success" onClick={() => setShowBorrowModal(true)}>
                 Borrow Now
               </button>
             </div>
@@ -32,6 +31,7 @@ function Credit() {
           <MakePaymentModal show={showMakePaymentModal} onHide={() => setShowMakePaymentModal(false)} />
           <BorrowModal show={showBorrowModal} onHide={() => setShowBorrowModal(false)} />
         </main>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   );

@@ -16,8 +16,12 @@ code {
   background-color: #fff;
 }
 
-.bg-kortingmint, .kortingmint.sidebar, .testimonials{
+.bg-kortingmint, .kortingmint.sidebar, .kmint.container-fluid, .testimonials, .App{
   background: #4caf50 !important;
+}
+
+.testimonial{
+  min-height: 204px;
 }
 
 .kortingmint .nav-item a{color: #fff;}
@@ -32,6 +36,8 @@ code {
 
 main.kmint, .kmint.container{background-color: #fff;
   min-height: 680px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 0 0;
 }
 
 .kmint .card{
@@ -45,4 +51,105 @@ main.kmint, .kmint.container{background-color: #fff;
 
 .price-qty-container .text-success {
   float: right;
+}
+
+.kmint-deals{height: 550px!important;}
+
+
+
+
+/* Custom Button Styles */
+
+/* Kmint Orange Button */
+.btn-kmint-orange {
+  color: #fff!important;
+  background-color: #FF9800!important;
+  border-color: #FF9800!important;
+}
+
+.btn-kmint-orange:hover,
+.btn-kmint-orange:focus,
+.btn-kmint-orange:active,
+.btn-kmint-orange.active,
+.open > .dropdown-toggle.btn-kmint-orange {
+  color: #fff!important;
+  background-color: #E65100!important;
+  border-color: #E65100!important;
+}
+
+.btn-kmint-orange:active,
+.btn-kmint-orange.active,
+.open > .dropdown-toggle.btn-kmint-orange {
+  background-image: none;
+}
+
+.btn-kmint-orange.disabled,
+.btn-kmint-orange[disabled],
+fieldset[disabled] .btn-kmint-orange,
+.btn-kmint-orange.disabled:hover,
+.btn-kmint-orange[disabled]:hover,
+fieldset[disabled] .btn-kmint-orange:hover,
+.btn-kmint-orange.disabled:focus,
+.btn-kmint-orange[disabled]:focus,
+fieldset[disabled] .btn-kmint-orange:focus,
+.btn-kmint-orange.disabled:active,
+.btn-kmint-orange[disabled]:active,
+fieldset[disabled] .btn-kmint-orange:active,
+.btn-kmint-orange.disabled.active,
+.btn-kmint-orange[disabled].active,
+fieldset[disabled] .btn-kmint-orange.active {
+  background-color: #FF9800;
+  border-color: #FF9800;
+}
+
+.btn-kmint-orange .badge {
+  color: #FF9800;
+  background-color: #fff;
+}
+
+/* Kmint Blue Button */
+.btn-kmint-blue {
+  color: #fff!important;
+  background-color: #2196F3!important;
+  border-color: #2196F3!important;
+}
+
+.btn-kmint-blue:hover,
+.btn-kmint-blue:focus,
+.btn-kmint-blue:active,
+.btn-kmint-blue.active,
+.open > .dropdown-toggle.btn-kmint-blue {
+  color: #fff!important;
+  background-color: #1976D2!important;
+  border-color: #1976D2!important;
+}
+
+.btn-kmint-blue:active,
+.btn-kmint-blue.active,
+.open > .dropdown-toggle.btn-kmint-blue {
+  background-image: none;
+}
+
+.btn-kmint-blue.disabled,
+.btn-kmint-blue[disabled],
+fieldset[disabled] .btn-kmint-blue,
+.btn-kmint-blue.disabled:hover,
+.btn-kmint-blue[disabled]:hover,
+fieldset[disabled] .btn-kmint-blue:hover,
+.btn-kmint-blue.disabled:focus,
+.btn-kmint-blue[disabled]:focus,
+fieldset[disabled] .btn-kmint-blue:focus,
+.btn-kmint-blue.disabled:active,
+.btn-kmint-blue[disabled]:active,
+fieldset[disabled] .btn-kmint-blue:active,
+.btn-kmint-blue.disabled.active,
+.btn-kmint-blue[disabled].active,
+fieldset[disabled] .btn-kmint-blue.active {
+  background-color: #2196F3;
+  border-color: #2196F3;
+}
+
+.btn-kmint-blue .badge {
+  color: #2196F3;
+  background-color: #fff;
 }
