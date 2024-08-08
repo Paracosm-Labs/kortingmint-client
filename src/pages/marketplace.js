@@ -1,39 +1,41 @@
 // pages/Marketplace.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 
-// Simulated coupon data
-const coupons = [
-  { id: 1, name: "50% Off TechStore", description: "Get 50% off on all electronics", price: 10, category: "Shopping", country: "United States", image: "https://picsum.photos/300/150?random=1", quantityAvailable: 50 },
-  { id: 2, name: "Free Coffee at CoffeeHouse", description: "Enjoy a free coffee with any purchase", price: 5, category: "Food & Drink", country: "Trinidad and Tobago", image: "https://picsum.photos/300/150?random=2", quantityAvailable: 100 },
-  { id: 3, name: "20% Off FitnessPro Membership", description: "Join FitnessPro and get 20% off your first month", price: 15, category: "Health", country: "Trinidad and Tobago", image: "https://picsum.photos/300/150?random=3", quantityAvailable: 75 },
-  { id: 4, name: "Free Movie Ticket", description: "Get one free movie ticket at CinemaX", price: 7, category: "Entertainment", country: "India", image: "https://picsum.photos/300/150?random=4", quantityAvailable: 30 },
-  { id: 5, name: "30% Off TravelPackage", description: "Save 30% on any travel package", price: 25, category: "Travel", country: "Japan", image: "https://picsum.photos/300/150?random=5", quantityAvailable: 20 },
-  { id: 6, name: "Buy 1 Get 1 Free at BookStore", description: "Buy one book and get another free", price: 12, category: "Shopping", country: "Germany", image: "https://picsum.photos/300/150?random=6", quantityAvailable: 60 },
-  { id: 7, name: "10% Off on All Orders at GourmetBites", description: "Get 10% off on your next order at GourmetBites", price: 8, category: "Food & Drink", country: "France", image: "https://picsum.photos/300/150?random=7", quantityAvailable: 85 },
-  { id: 8, name: "Free Yoga Class", description: "Enjoy 1 free yoga class at ZenStudio", price: 10, category: "Health", country: "India", image: "https://picsum.photos/300/150?random=8", quantityAvailable: 40 },
-  { id: 9, name: "50% Off Your First Ride with TaxiPro", description: "Get 50% off on your first ride", price: 6, category: "Travel", country: "Netherlands", image: "https://picsum.photos/300/150?random=9", quantityAvailable: 70 },
+// Simulated club data
+const clubs = [
+    { "id": 1, "name": "TechStore Savings Club", "description": "Join the TechStore Savings Club for exclusive 50% off all electronics", "price": 10, "category": "Shopping", "country": "United States", "image": "https://picsum.photos/300/150?random=1", "members": 50 },
+    { "id": 2, "name": "CoffeeHouse Perks Pool", "description": "Become a member of the CoffeeHouse Perks Pool and enjoy a free coffee with any purchase", "price": 5, "category": "Food & Drink", "country": "Trinidad and Tobago", "image": "https://picsum.photos/300/150?random=2", "members": 100 },
+    { "id": 3, "name": "FitnessPro Club Discount", "description": "Join the FitnessPro Club for a 20% discount on your first month of membership", "price": 15, "category": "Health", "country": "Trinidad and Tobago", "image": "https://picsum.photos/300/150?random=3", "members": 75 },
+    { "id": 4, "name": "CinemaX Movie Club", "description": "Access the CinemaX Movie Club to get one free movie ticket", "price": 7, "category": "Entertainment", "country": "India", "image": "https://picsum.photos/300/150?random=4", "members": 30 },
+    { "id": 5, "name": "TravelPackage Savings Pool", "description": "Join the TravelPackage Savings Pool to enjoy 30% off any travel package", "price": 25, "category": "Travel", "country": "Japan", "image": "https://picsum.photos/300/150?random=5", "members": 20 },
+    { "id": 6, "name": "BookStore Buy 1 Get 1 Pool", "description": "Become a member of the BookStore Buy 1 Get 1 Pool and get one book free with every purchase", "price": 12, "category": "Shopping", "country": "Germany", "image": "https://picsum.photos/300/150?random=6", "members": 60 },
+    { "id": 7, "name": "GourmetBites Discount Club", "description": "Join the GourmetBites Discount Club to receive 10% off on all orders", "price": 8, "category": "Food & Drink", "country": "France", "image": "https://picsum.photos/300/150?random=7", "members": 85 },
+    { "id": 8, "name": "ZenStudio Yoga Pool", "description": "Sign up for the ZenStudio Yoga Pool and enjoy 1 free yoga class", "price": 10, "category": "Health", "country": "India", "image": "https://picsum.photos/300/150?random=8", "members": 40 },
+    { "id": 9, "name": "TaxiPro Ride Discount Club", "description": "Join the TaxiPro Ride Discount Club for 50% off your first ride", "price": 6, "category": "Travel", "country": "Netherlands", "image": "https://picsum.photos/300/150?random=9", "members": 70 },
   
-  // Add more coupons as needed
+  // Add more clubs as needed
 ];
 
 function Marketplace() {
   const [selectedCountry, setSelectedCountry] = useState("All Countries");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [selectedSort, setSelectedSort] = useState("Newest");
-  const [selectedCoupon, setSelectedCoupon] = useState(null);
+  const [selectedClub, setSelectedClub] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // Extract unique countries and categories from the coupons data
-  const uniqueCountries = ["All Countries", ...new Set(coupons.map(coupon => coupon.country))];
-  const uniqueCategories = ["All Categories", ...new Set(coupons.map(coupon => coupon.category))];
+  // Extract unique countries and categories from the clubs data
+  const uniqueCountries = ["All Countries", ...new Set(clubs.map(club => club.country))];
+  const uniqueCategories = ["All Categories", ...new Set(clubs.map(club => club.category))];
 
   // Handle country and category change
   const handleCountrySelect = (country) => {
@@ -48,36 +50,41 @@ function Marketplace() {
     setSelectedSort(sort);
   };
 
-  // Filter coupons based on selected country and category
-  const filteredCoupons = coupons.filter(coupon => 
-    coupon.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-    (selectedCountry === "All Countries" || coupon.country === selectedCountry) &&
-    (selectedCategory === "All Categories" || coupon.category === selectedCategory)
+  // Filter clubs based on selected country and category
+  const filteredClubs = clubs.filter(club => 
+    club.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+    (selectedCountry === "All Countries" || club.country === selectedCountry) &&
+    (selectedCategory === "All Categories" || club.category === selectedCategory)
   );
 
-  // Sort coupons based on selected sort option
-  const sortedCoupons = [...filteredCoupons].sort((a, b) => {
+  // Sort clubs based on selected sort option
+  const sortedClubs = [...filteredClubs].sort((a, b) => {
     switch (selectedSort) {
       case "Price: Low to High":
         return a.price - b.price;
       case "Price: High to Low":
         return b.price - a.price;
       case "Popularity":
-        return b.quantityAvailable - a.quantityAvailable;
+        return b.members - a.members;
       case "Newest":
       default:
         return b.id - a.id; // Assuming higher id means newer
     }
   });
 
-  const handleShowModal = (coupon) => {
-    setSelectedCoupon(coupon);
+  const handleShowModal = (club) => {
+    setSelectedClub(club);
     setShowModal(true);
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setSelectedCoupon(null);
+    setSelectedClub(null);
+  };
+
+  const handlePayJoin = () => {
+    setShowModal(false);
+    navigate('/marketplace/myclubs');
   };
 
 
@@ -86,13 +93,13 @@ function Marketplace() {
     <div className="kmint container mt-2">
       <div className="row mb-4">
         <div className="col-md-12 text-center">
-          <h1>Discover Amazing Deals</h1>
+          <h1>Discover Amazing Clubs</h1>
         </div>
         <div className="col-md-3"></div>
         <div className="col-md-6">
           <div className="d-flex justify-content-middle mt-3">
             <div className="input-group" id="search-bar">
-              <input type="text" className="form-control" placeholder="Search coupons" aria-label="Search coupons"
+              <input type="text" className="form-control" placeholder="Search Clubs" aria-label="Search Clubs"
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
@@ -173,22 +180,22 @@ function Marketplace() {
         </div>
       </div>
 
-      <div className="row" id="coupon-container">
-        {sortedCoupons.map(coupon => (
-          <div className="col-md-4 mb-4" key={coupon.id}>
-            <div className="card coupon-card">
-              <img src={coupon.image} className="card-img-top" alt={coupon.name} />
+      <div className="row" id="club-container">
+        {sortedClubs.map(club => (
+          <div className="col-md-4 mb-4" key={club.id}>
+            <div className="card club-card">
+              <img src={club.image} className="card-img-top" alt={club.name} />
               <div className="card-body">
-                <h5 className="card-title">{coupon.name}</h5>
-                <p className="card-text">{coupon.description}</p>
+                <h5 className="card-title">{club.name}</h5>
+                <p className="card-text">{club.description}</p>
                 <div className="price-qty-container">
-                  <span className="badge bg-secondary badge-category">{coupon.category}</span>
-                  <span className="badge bg-secondary badge-country mx-2">{coupon.country}</span>
-                  <span className="text-success">{coupon.quantityAvailable} Available</span>
+                  <span className="badge bg-secondary badge-category">{club.category}</span>
+                  <span className="badge bg-secondary badge-country mx-2">{club.country}</span>
+                  <span className="text-success">{club.members} Members</span>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                  <h4 className='text-success mt-2'>${coupon.price}</h4>
-                  <button className="btn btn-primary" onClick={() => handleShowModal(coupon)}>Buy Now</button>
+                  <h4 className='text-success mt-2'>${club.price}</h4>
+                  <button className="btn btn-primary" onClick={() => handleShowModal(club)}>Join Now</button>
                 </div>
               </div>
             </div>
@@ -198,22 +205,22 @@ function Marketplace() {
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title>{selectedCoupon?.name}</Modal.Title>
+          <Modal.Title>{selectedClub?.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={selectedCoupon?.image} className="img-fluid mb-3" alt={selectedCoupon?.name} />
-          <h5>${selectedCoupon?.price}</h5>
-          <p>{selectedCoupon?.description}</p>
-          <p><strong>Category:</strong> {selectedCoupon?.category}</p>
-          <p><strong>Country:</strong> {selectedCoupon?.country}</p>
-          <p><strong>Quantity Available:</strong> {selectedCoupon?.quantityAvailable}</p>
+          <img src={selectedClub?.image} className="img-fluid mb-3" alt={selectedClub?.name} />
+          <h5>${selectedClub?.price}</h5>
+          <p>{selectedClub?.description}</p>
+          <p><strong>Category:</strong> {selectedClub?.category}</p>
+          <p><strong>Country:</strong> {selectedClub?.country}</p>
+          <p><strong>Members:</strong> {selectedClub?.members}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleCloseModal}>
-            Buy Now
+          <Button variant="primary" onClick={handlePayJoin}>
+            Pay & Join Now
           </Button>
         </Modal.Footer>
       </Modal>

@@ -11,10 +11,11 @@ function Header() {
           </button>
         <nav>
           <ul className="navbar-nav">
-            <li className="nav-item"><Link className="nav-link" to="/dashboard/partner">Partner</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/dashboard/business">Business</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/marketplace">Explore Coupons</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/marketplace/mycoupons">My Coupons</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/marketplace">Explore Clubs</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/marketplace/myclubs">My Clubs</Link></li>
+            {/* <li className="nav-item"><Link className="nav-link" to="/dashboard/partner">Partner</Link></li> */}
+            <li className="nav-item"><Link className="nav-link" to="/dashboard/business">Dashboard</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/">Logout</Link></li>
           </ul>
         </nav>
       </div>

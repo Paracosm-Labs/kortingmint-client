@@ -10,13 +10,13 @@ function Sidebar() {
           <li className="nav-item">
             <Link to="/dashboard/business" className="nav-link active">
               <i className="fas fa-tachometer-alt me-2"></i>
-              Dashboard
+              Business Dashboard
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard/business/coupons" className="nav-link">
-              <i className="fas fa-tags me-2"></i>
-              Coupons
+            <Link to="/dashboard/club" className="nav-link">
+              <i className="fas fa-tachometer-alt me-2"></i>
+              Club Dashboard
             </Link>
           </li>
           <li className="nav-item">

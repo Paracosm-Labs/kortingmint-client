@@ -5,10 +5,11 @@ import Footer from './components/footer';
 import Home from './pages/home';
 import PartnerDashboard from './pages/partnerDashboard';
 import BusinessDashboard from './pages/businessDashboard';
+import ClubDashboard from './pages/clubDashboard';
 import Redemptions from './pages/redemptions';
 import Credit from './pages/credit';
 import Marketplace from './pages/marketplace';
-import CustomerCoupons from './pages/customerCoupons';
+import CustomerClubs from './pages/customerClubs';
 
 function App() {
   return (
@@ -19,10 +20,11 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route path="/dashboard/partner" element={<PartnerDashboard/>} />
           <Route path="/dashboard/business" element={<BusinessDashboard/>}/>
+          <Route path="/dashboard/club" element={<ClubDashboard/>}/>
           <Route path="dashboard/business/redemptions" element={<Redemptions/>}/>
           <Route path="dashboard/business/credit" element={<Credit/>}/>
           <Route path="/marketplace" element={<Marketplace/>} />
-          <Route path="/marketplace/mycoupons" element={<CustomerCoupons/>} />
+          <Route path="/marketplace/myclubs" element={<CustomerClubs/>} />
         </Routes>
         <Footer />
       </div>
