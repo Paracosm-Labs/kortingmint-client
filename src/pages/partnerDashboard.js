@@ -4,6 +4,7 @@ import Sidebar from '../components/sidebar';
 import PartnerStats from '../components/partnerStats';
 import RevenueChart from '../components/revenueChart';
 import RecentCommissions from '../components/recentCommissions';
+import ReferralLink from '../components/referralLink'; 
 
 function PartnerDashboard() {
   return (
@@ -21,6 +22,7 @@ function PartnerDashboard() {
             </div>
           </div>
           <PartnerStats />
+          <ReferralLink />
           <div className="row mt-4">
             <div className="col-md-12">
               <RevenueChart />
