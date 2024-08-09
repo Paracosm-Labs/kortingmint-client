@@ -1,4 +1,4 @@
-// pages/Credit.js
+// pages/CreditManagement.js
 import React, { useState } from 'react';
 import Sidebar from '../components/sidebar';
 import CreditSummary from '../components/creditSummary';
@@ -6,7 +6,7 @@ import CreditUsageHistory from '../components/creditUsageHistory';
 import MakePaymentModal from '../components/makePaymentModal';
 import BorrowModal from '../components/borrowModal';
 
-function Credit() {
+function CreditManagement() {
   const [showMakePaymentModal, setShowMakePaymentModal] = useState(false);
   const [showBorrowModal, setShowBorrowModal] = useState(false);
 
@@ -37,4 +37,4 @@ function Credit() {
   );
 }
 
-export default Credit;
+export default CreditManagement;
