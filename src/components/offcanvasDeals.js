@@ -7,7 +7,6 @@ const sampleDealData = [
     image: 'https://picsum.photos/200/100?random=1',
     title: '20% Off Electronics',
     description: 'Save 20% on all electronics purchases at TechStore.',
-    discount: 20,
     validFrom: '2023-06-01',
     validTo: '2023-08-31'
   },

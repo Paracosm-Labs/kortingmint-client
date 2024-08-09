@@ -1,23 +1,23 @@
-// components/offerModal.js
+// components/dealModal.js
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-function OfferModal({ show, onHide, offer }) {
-  const [offerImage, setOfferImage] = useState(offer?.image || '');
-  const [maxSupply, setMaxSupply] = useState(offer?.maxSupply || '');
-  const [offerDescription, setOfferDescription] = useState(offer?.description || '');
-  const [offerValidFrom, setOfferValidFrom] = useState(offer?.validFrom || '');
-  const [offerValidTo, setOfferValidTo] = useState(offer?.validTo || '');
+function DealModal({ show, onHide, deal }) {
+  const [dealImage, setDealImage] = useState(deal?.image || '');
+  const [maxSupply, setMaxSupply] = useState(deal?.maxSupply || '');
+  const [dealDescription, setDealDescription] = useState(deal?.description || '');
+  const [dealValidFrom, setDealValidFrom] = useState(deal?.validFrom || '');
+  const [dealValidTo, setDealValidTo] = useState(deal?.validTo || '');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Submitting offer:', {
-      image: offerImage,
+    console.log('Submitting deal:', {
+      image: dealImage,
       maxSupply: maxSupply,
-      description: offerDescription,
-      validFrom: offerValidFrom,
-      validTo: offerValidTo
+      description: dealDescription,
+      validFrom: dealValidFrom,
+      validTo: dealValidTo
     });
     onHide();
   };
@@ -25,13 +25,13 @@ function OfferModal({ show, onHide, offer }) {
   return (
     <Modal show={show} onHide={onHide} size="md" centered>
       <Modal.Header closeButton>
-        <Modal.Title>{offer ? 'Edit Offer' : 'Create New Offer'}</Modal.Title>
+        <Modal.Title>{deal ? 'Edit Deal' : 'Create New Deal'}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Offer Image</Form.Label>
-            <Form.Control type="file" value={offerImage} onChange={(e) => setOfferImage(e.target.value)} />
+            <Form.Label>Deal Image</Form.Label>
+            <Form.Control type="file" value={dealImage} onChange={(e) => setDealImage(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Max Supply</Form.Label>
@@ -39,22 +39,22 @@ function OfferModal({ show, onHide, offer }) {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" rows={3} value={offerDescription} onChange={(e) => setOfferDescription(e.target.value)} />
+            <Form.Control as="textarea" rows={3} value={dealDescription} onChange={(e) => setDealDescription(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Valid From</Form.Label>
-            <Form.Control type="date" value={offerValidFrom} onChange={(e) => setOfferValidFrom(e.target.value)} />
+            <Form.Control type="date" value={dealValidFrom} onChange={(e) => setDealValidFrom(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Valid To</Form.Label>
-            <Form.Control type="date" value={offerValidTo} onChange={(e) => setOfferValidTo(e.target.value)} />
+            <Form.Control type="date" value={dealValidTo} onChange={(e) => setDealValidTo(e.target.value)} />
           </Form.Group>
           <div className="text-end">
             <Button variant="outline-secondary" onClick={onHide} className="me-2">
               Cancel
             </Button>
             <Button className='btn btn-kmint-blue' type="submit">
-              {offer ? 'Update Offer' : 'Create Offer'}
+              {deal ? 'Update Deal' : 'Create Deal'}
             </Button>
           </div>
         </Form>
@@ -63,4 +63,4 @@ function OfferModal({ show, onHide, offer }) {
   );
 }
 
-export default OfferModal;
+export default DealModal;

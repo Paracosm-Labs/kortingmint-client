@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import OffcanvasDeals from '../components/offcanvasDeals';
+import MyDealsModal from '../components/myDealsModal';
 
 const purchasedClubs = [
   {
@@ -31,7 +32,7 @@ const purchasedClubs = [
     "category": "Health",
     "country": "Trinidad and Tobago",
     "image": "https://picsum.photos/300/150?random=3",
-    "members": 75
+    "members": 750
 },// Add more purchased Clubs as needed
 ];
 
@@ -40,11 +41,17 @@ const purchasedClubs = [
 function CustomerClubs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [selectedClub, setSelectedClub] = useState(null);
   
   const handleViewDeals = (club) => {
     setSelectedClub(club);
     setShowOffcanvas(true);
+  };
+
+  const handleViewMyDeals = (club) => {
+    setSelectedClub(club);
+    setShowModal(true);
   };
 
 
@@ -94,6 +101,7 @@ function CustomerClubs() {
                     <div className="d-flex justify-content-between align-items-center mt-3">
                     <p className="text-muted">{club.members} Members</p>
                       <button className="btn btn-success" onClick={() => handleViewDeals(club)}>View Deals</button>
+                      <button className="btn btn-outline-success" onClick={() => handleViewMyDeals(club)}>My Minted Deals</button>
                     </div>
                   </div>
                 </div>
@@ -104,6 +112,7 @@ function CustomerClubs() {
         ))}
       </div>
       <OffcanvasDeals show={showOffcanvas} onHide={() => setShowOffcanvas(false)} club={selectedClub} />
+      <MyDealsModal show={showModal} onHide={() => setShowModal(false)} offer={selectedClub} />
     </div>
   );
 }

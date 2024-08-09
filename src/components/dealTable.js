@@ -1,10 +1,10 @@
-// components/offerTable.js
+// components/dealTable.js
 import React, { useState, useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
 
-function OfferTable({ onEdit, onDelete }) {
+function DealTable({ onEdit, onDelete }) {
   // Sample data - replace with actual data fetching logic
-  const [offers, setOffers] = useState([
+  const [deals, setDeals] = useState([
     {
       id: 1,
       image: 'https://via.placeholder.com/200x150',
@@ -35,16 +35,16 @@ function OfferTable({ onEdit, onDelete }) {
           </tr>
         </thead>
         <tbody>
-          {offers.map((offer) => (
-            <tr key={offer.id}>
-              <td><img src={offer.image} alt={offer.supply} width="100" /></td>
-              <td>{offer.supply}</td>
-              <td>{offer.description}<p className='text-muted text-small'>Valid Thru: {offer.validFrom} - {offer.validTo}</p></td>
+          {deals.map((deal) => (
+            <tr key={deal.id}>
+              <td><img src={deal.image} alt={deal.supply} width="100" /></td>
+              <td>{deal.supply}</td>
+              <td>{deal.description}<p className='text-muted text-small'>Valid Thru: {deal.validFrom} - {deal.validTo}</p></td>
               <td>
-                <Button variant="outline-primary" size="sm" className="me-2" onClick={() => onEdit(offer)}>
+                <Button variant="outline-primary" size="sm" className="me-2" onClick={() => onEdit(deal)}>
                   Edit
                 </Button>
-                <Button variant="outline-danger" size="sm" onClick={() => onDelete(offer.id)}>
+                <Button variant="outline-danger" size="sm" onClick={() => onDelete(deal.id)}>
                   Delete
                 </Button>
               </td>
@@ -56,4 +56,4 @@ function OfferTable({ onEdit, onDelete }) {
   );
 }
 
-export default OfferTable;
+export default DealTable;

@@ -20,9 +20,9 @@ function Sidebar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard/business/manage-offers" className="nav-link">
+            <Link to="/dashboard/business/manage-deals" className="nav-link">
               <i className="fas fa-receipt me-2"></i>
-              Offer Management
+              Deal Management
             </Link>
           </li>
           <li className="nav-item">
